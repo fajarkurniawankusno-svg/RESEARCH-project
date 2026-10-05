@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Research+ | Independent Policy Research</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#faf9f6;--card:#fff;--text:#07303a;--muted:#4a5f63;--line:#e6e3da;--accent:#fbb53c;--amber:#a86f00;--ink:#062a30;--onaccent:#07303a;--serif:'Lora',Georgia,'Times New Roman',serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#071d22;--card:#0c2a31;--text:#f3f1ea;--muted:#9db0b3;--line:#1b3a41;--amber:#fbb53c}}
+:root[data-theme="dark"]{--bg:#071d22;--card:#0c2a31;--text:#f3f1ea;--muted:#9db0b3;--line:#1b3a41;--amber:#fbb53c}
+html{scroll-padding-top:calc(90px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*,*:before,*:after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Mulish',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:84px}
+.logo{display:flex;align-items:center;gap:14px;color:var(--text)}.mark{width:40px;height:40px;flex:none}.wm{display:flex;flex-direction:column;line-height:1}.name{font-family:var(--serif);font-size:32px;font-weight:500;letter-spacing:-.02em}.name b{color:var(--accent);font-weight:500;margin-left:2px}.wm small{font-size:9.5px;letter-spacing:.2em;color:var(--muted);margin-top:7px;font-weight:500}
+nav{display:flex;align-items:center;gap:30px;font-size:14px;font-weight:600;letter-spacing:.08em}
+nav>a,.dd>button{background:none;border:0;color:inherit;font:inherit;letter-spacing:inherit;cursor:pointer;padding:8px 0}
+nav>a:hover,.dd>button:hover{color:var(--amber)}
+.dd{position:relative}
+.menu{display:none;position:absolute;top:100%;left:-14px;min-width:170px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:8px;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.dd:hover .menu,.dd:focus-within .menu{display:block}
+.menu a{display:block;padding:9px 12px;border-radius:8px;letter-spacing:0;font-weight:500}.menu a:hover{background:var(--bg)}
+.tools{display:flex;align-items:center;gap:14px;padding-left:24px;border-left:1px solid var(--line)}
+.pill{height:44px;min-width:84px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--text);font:600 13px inherit;font-family:inherit;letter-spacing:.08em;cursor:pointer}
+.round{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text);cursor:pointer;display:grid;place-items:center}
+.burger{display:none}
+.eyebrow{color:var(--amber);font-weight:700;letter-spacing:.12em;font-size:15px;margin:0 0 26px}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:72px 0 90px}
+.book-insight{display:grid;grid-template-columns:minmax(220px,340px) 1fr;gap:64px;align-items:center;padding:72px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.book-cover{width:100%;max-width:340px;max-height:480px;object-fit:contain;justify-self:center;filter:drop-shadow(0 18px 24px rgba(7,48,58,.16))}
+.book-copy .eyebrow{margin-bottom:16px}
+.book-copy h2{text-align:left;margin:0 0 14px;font-size:clamp(32px,4vw,48px)}
+.book-subtitle{font-family:var(--serif);font-size:22px;line-height:1.4;color:var(--muted);margin:0 0 22px}
+.book-author{font-size:15px;font-weight:700;margin:0 0 28px}
+.book-insight .btn{border-radius:6px}
+h1,h2,h3{font-family:var(--serif);font-weight:500}
+h1{font-size:clamp(38px,5.2vw,64px);line-height:1.15;letter-spacing:-.03em;margin:0 0 28px}
+.hero p{font-size:18px;color:var(--muted);max-width:560px;margin:0 0 36px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--onaccent);font-weight:700;padding:16px 30px;border-radius:999px;border:0;cursor:pointer;font-size:16px;font-family:inherit}
+.btn:hover{filter:brightness(1.07)}
+.photo{background:#fbb53c;border-radius:28px;aspect-ratio:1.63;display:flex;align-items:flex-end;justify-content:center;gap:2.5%;padding:0 5%;overflow:hidden;position:relative}
+.p{width:11%;height:62%;border-radius:40px 40px 0 0;position:relative;background:#fff}
+.p:before{content:"";position:absolute;left:50%;top:-34%;width:70%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:#7a4a2c}
+.p.r{background:#07303a}.p:nth-child(2n){height:70%}.p:nth-child(3n){height:58%}
+.photo small{position:absolute;top:12px;right:16px;font-size:12px;font-weight:600;color:#111;opacity:.55}
+h2{font-size:clamp(32px,4vw,48px);letter-spacing:-.03em;text-align:center;margin:0 0 48px;line-height:1.2}
+.values{padding:30px 0 100px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:38px 40px;min-height:200px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.card svg{width:44px;height:44px;stroke:var(--amber);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;margin-bottom:22px}
+.card p{margin:0;font-size:18px;font-weight:500}
+.cta{background:var(--ink);color:#fff;padding:64px 0 0}
+.cta .eyebrow{color:var(--accent);font-size:14px;margin-bottom:12px}
+.cta h3{font-size:clamp(28px,4vw,44px);letter-spacing:-.03em;margin:0 0 36px;line-height:1.2}
+.big{display:flex;justify-content:center;width:100%;padding:34px;font-size:30px;background:#fbb53c;color:#07303a}
+.cols{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;padding:80px 0 56px;border-top:1px solid #17434b;margin-top:76px}
+.cols h4{margin:0 0 20px;font-size:17px}
+.cols a,.cols span{display:block;color:#9aa3b2;font-size:15px;margin-bottom:12px}
+.cols a:hover{color:var(--accent)}
+.copy{border-top:1px solid #17434b;padding:26px 0 32px;color:#6b7280;font-size:13px;text-align:center}
+.whatsapp{position:fixed;right:24px;bottom:calc(24px + env(safe-area-inset-bottom,0px));z-index:20;width:58px;height:58px;display:grid;place-items:center;border-radius:50%;background:#25d366;color:#fff;box-shadow:0 6px 20px rgba(0,0,0,.22);transition:transform .2s,box-shadow .2s}
+.whatsapp:hover{transform:translateY(-3px);box-shadow:0 9px 24px rgba(0,0,0,.26)}
+.whatsapp svg{width:30px;height:30px;fill:currentColor}
+@media(max-width:960px){
+.hero{grid-template-columns:1fr;padding:44px 0 60px}.book-insight{grid-template-columns:minmax(200px,280px) 1fr;gap:36px;padding:56px 0}.grid{grid-template-columns:1fr 1fr}.cols{grid-template-columns:1fr 1fr}
+.burger{display:grid}
+nav{display:none;position:absolute;top:84px;left:0;right:0;background:var(--bg);flex-direction:column;align-items:flex-start;padding:16px 24px 24px;border-bottom:1px solid var(--line)}
+nav.open{display:flex}.menu{position:static;display:block;border:0;box-shadow:none;padding:0 0 0 8px}
+.tools{border:0;padding:0}}
+@media(max-width:600px){.grid,.cols{grid-template-columns:1fr}.book-insight{grid-template-columns:1fr;gap:28px;padding:44px 0}.book-cover{width:min(72%,280px);max-height:390px}.book-copy h2{text-align:center}.book-copy{text-align:center}.book-copy .eyebrow{margin-bottom:12px}.book-subtitle{font-size:19px}.big{font-size:22px}}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+</style>
+</head>
+<body>
+<header><div class="wrap bar">
+<a class="logo" href="#top" aria-label="research+ Independent policy research"><svg class="mark" viewBox="0 0 36 36" aria-hidden="true"><rect x="12" y="0" width="12" height="12" fill="#fbb53c"/><rect x="0" y="12" width="12" height="12" fill="currentColor"/><rect x="24" y="12" width="12" height="12" fill="currentColor"/><rect x="12" y="24" width="12" height="12" fill="currentColor"/></svg><span class="wm"><span class="name">research<b>+</b></span><small>Independent policy research</small></span></a>
+<nav id="nav">
+<div class="dd"><button data-i="about">About Us ▾</button>
+<div class="menu"><a href="#hero" data-i="story">Our Story</a><a href="#team" data-i="team">Team</a><a href="#kontak" data-i="contact">Contact</a></div></div>
+<a href="#expertise" data-i="exp">Our Expertise</a><a href="#kc" data-i="kc">Knowledge Center</a><a href="#insights" data-i="ins">Insights</a><a href="#events" data-i="ev">Events</a><a href="#careers" data-i="car">Careers</a>
+<div class="tools"><button class="pill" id="lang">EN</button>
+<button class="round" id="theme" aria-label="Dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button></div>
+</nav>
+<button class="round burger" id="burger" aria-label="Menu"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></header>
+
+<main id="top">
+<section class="wrap hero" id="hero">
+<div><p class="eyebrow" data-i="who">WHO WE ARE</p>
+<h1 data-i="h1">Riset Kebijakan Independen untuk Keputusan yang Lebih Tepat</h1>
+<p data-i="lead">Research+ adalah lembaga riset kebijakan independen yang membantu menjawab tantangan yang kompleks. Kami menggabungkan data lapangan dan wawasan global untuk mengubah temuan menjadi keputusan yang nyata.</p>
+<a class="btn" href="#values" data-i="story-btn">Baca Kisah Kami <span>→</span></a></div>
+<div class="photo" role="img" aria-label="Placeholder foto tim"><small>Ganti dengan foto tim Anda</small>
+<i class="p"></i><i class="p r"></i><i class="p"></i><i class="p r"></i><i class="p"></i><i class="p r"></i><i class="p"></i></div>
+</section>
+
+<section class="wrap book-insight" id="insights" aria-labelledby="book-title">
+<img class="book-cover" src="Gemini_Generated_Image_3zl28b3zl28b3zl2.jpg" alt="Sampul buku Indonesia's Blue-Green Economy karya Fajar Dysna Kurniawan">
+<div class="book-copy">
+<p class="eyebrow" data-i="book-label">BUKU HASIL PENELITIAN</p>
+<h2 id="book-title">Indonesia's Blue-Green Economy</h2>
+<p class="book-subtitle">Integrating Economic Sustainability, Green Finance, and Clean Energy</p>
+<p class="book-author">Fajar Dysna Kurniawan, M.Sc.</p>
+<a class="btn" href="mailto:hello@researchplus.co.id?subject=Indonesia%27s%20Blue-Green%20Economy" data-i="book-cta">Tanyakan tentang buku</a>
+</div>
+</section>
+
+<section class="wrap values" id="values">
+<h2 data-i="vt">What We Value</h2>
+<div class="grid">
+<div class="card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg><p data-i="v1">Mengejar keunggulan</p></div>
+<div class="card"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-7 7-7s7 3 7 7M16 4a4 4 0 0 1 0 8M22 21c0-3-2-5.5-4.5-6.5"/></svg><p data-i="v2">Berkolaborasi untuk bertumbuh</p></div>
+<div class="card"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 2 3.1-.2.9 3 2.6 1.7-1 3 1 3-2.6 1.7-.9 3-3.1-.2L12 22l-2.4-2-3.1.2-.9-3L3 15.5l1-3-1-3L5.600 7.800l.9-3 3.100.2z"/><path d="M8.500 12l2.500 2.500 4.500-5"/></svg><p data-i="v3">Kejujuran dan kepercayaan adalah inti keberhasilan</p></div>
+<div class="card"><svg viewBox="0 0 24 24"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/><path d="M19 3v4M17 5h4"/></svg><p data-i="v4">Terbuka pada inovasi dan kreativitas tanpa batas</p></div>
+<div class="card"><svg viewBox="0 0 24 24"><path d="M12 21s-8-5-9.500-10A5.200 5.200 0 0 1 12 6.500 5.200 5.200 0 0 1 21.500 11C20 16 12 21 12 21z"/></svg><p data-i="v5">Dilandasi empati dan selalu siap membantu</p></div>
+<div class="card"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg><p data-i="v6">Berwawasan global dengan tetap memahami kebutuhan lokal</p></div>
+</div></section>
+</main>
+
+<footer class="cta" id="kontak">
+<div class="wrap">
+<p class="eyebrow" data-i="cta">CALL TO ACTION</p>
+<h3 data-i="cth">Siap menghasilkan dampak yang berarti?</h3>
+<a class="btn big" href="mailto:hello@researchplus.co.id" data-i="touch">Hubungi Kami</a>
+<div class="cols">
+<div><h4 data-i="addr">Alamat &amp; Kontak</h4><span>Gedung Anda, Lantai 2<br>Jl. Contoh No. 1, Jakarta</span><a href="mailto:hello@researchplus.co.id">hello@researchplus.co.id</a><span>+62 800 0000 0000</span></div>
+<div id="expertise"><h4 data-i="exp">Our Expertise</h4><a href="#">Survei &amp; Data</a><a href="#">Analisis Pasar</a><a href="#">Evaluasi Program</a><a href="#">Strategi &amp; Rekomendasi</a></div>
+<div><h4 data-i="about">About Us</h4><a href="#hero" data-i="story">Our Story</a><a href="#team" data-i="team">Team</a><a href="#careers" data-i="car">Careers</a><a href="#kontak" data-i="contact">Contact</a></div>
+<div><h4 data-i="follow">Follow Us</h4><a href="#">Facebook</a><a href="#">Instagram</a><a href="#">LinkedIn</a></div>
+</div>
+<div class="copy">© 2026 Research+. All rights reserved.</div>
+</div></footer>
+
+<a class="whatsapp" href="https://wa.me/6287820027219" target="_blank" rel="noopener noreferrer" aria-label="Hubungi kami melalui WhatsApp" title="Chat melalui WhatsApp">
+<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a12.8 12.8 0 0 0-11 19.3L3.3 29l6.9-1.8A12.9 12.9 0 1 0 16 3zm0 23.3c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.4A10.4 10.4 0 1 1 16 26.3zm5.7-7.8c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6-.1-.2-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.1 1.4 3.3c.2.2 2.3 3.5 5.6 4.9.8.4 1.4.6 1.9.7.8.3 1.5.2 2 .1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4 0-.2-.2-.3-.5-.4z"/></svg>
+</a>
+
+<script>
+const T={
+id:{about:"About Us ▾",story:"Our Story",team:"Team",contact:"Contact",exp:"Our Expertise",kc:"Knowledge Center",ins:"Insights",ev:"Events",car:"Careers",who:"SIAPA KAMI","book-label":"BUKU HASIL PENELITIAN","book-cta":"Tanyakan tentang buku",
+h1:"Riset Kebijakan Independen untuk Keputusan yang Lebih Tepat",lead:"Research+ adalah lembaga riset kebijakan independen yang membantu menjawab tantangan yang kompleks. Kami menggabungkan data lapangan dan wawasan global untuk mengubah temuan menjadi keputusan yang nyata.",
+"story-btn":"Baca Kisah Kami <span>→</span>",vt:"Nilai Kami",v1:"Mengejar keunggulan",v2:"Berkolaborasi untuk bertumbuh",v3:"Kejujuran dan kepercayaan adalah inti keberhasilan",v4:"Terbuka pada inovasi dan kreativitas tanpa batas",v5:"Dilandasi empati dan selalu siap membantu",v6:"Berwawasan global dengan tetap memahami kebutuhan lokal",
+cta:"AJAKAN BERTINDAK",cth:"Siap menghasilkan dampak yang berarti?",touch:"Hubungi Kami",addr:"Alamat & Kontak",follow:"Ikuti Kami"},
+en:{about:"About Us ▾",story:"Our Story",team:"Team",contact:"Contact",exp:"Our Expertise",kc:"Knowledge Center",ins:"Insights",ev:"Events",car:"Careers",who:"WHO WE ARE","book-label":"RESEARCH PUBLICATION","book-cta":"Ask about the book",
+h1:"Independent Policy Research for Better Decisions",lead:"Research+ is an independent policy research organization that helps solve complex challenges. We combine field data with global insight to turn findings into real decisions.",
+"story-btn":"Read Our Story <span>→</span>",vt:"What We Value",v1:"Aiming for excellence",v2:"Collaborate for growth",v3:"Truth and trust are the essence of success",v4:"Open to unlimited innovation and creativity",v5:"Nurtured by empathy and always ready to help",v6:"Having a global perspective while localizing community needs",
+cta:"CALL TO ACTION",cth:"Ready to drive meaningful impact?",touch:"Get in Touch",addr:"Address & Contact",follow:"Follow Us"}};
+let lang="id";const $=s=>document.querySelector(s);
+$("#lang").onclick=()=>{lang=lang==="id"?"en":"id";$("#lang").textContent=lang==="id"?"EN":"ID";document.documentElement.lang=lang;
+document.querySelectorAll("[data-i]").forEach(e=>{const v=T[lang][e.dataset.i];if(v)e.innerHTML=v});};
+$("#theme").onclick=()=>{const r=document.documentElement,d=getComputedStyle(r).getPropertyValue("--bg").trim()==="#071d22";r.dataset.theme=d?"light":"dark"};
+$("#burger").onclick=()=>$("#nav").classList.toggle("open");
+</script>
+</body>
+</html>
